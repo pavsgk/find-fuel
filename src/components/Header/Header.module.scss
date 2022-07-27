@@ -1,0 +1,17 @@
+.nav {
+  background: #E4E5E9;
+  display: flex;
+  padding: 20px 0;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  border-bottom: #0002 1px solid;
+
+  a {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    text-transform: capitalize;
+    color: #2B2C34;
+  }
+}
