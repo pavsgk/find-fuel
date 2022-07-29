@@ -8,6 +8,7 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
+    "msw": "^0.44.2",
     "pigeon-maps": "^0.21.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -43,5 +44,8 @@
     "eslint": "^8.20.0",
     "eslint-plugin-react": "^7.30.1",
     "sass": "^1.54.0"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }
