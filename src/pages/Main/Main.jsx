@@ -11,6 +11,6 @@ export default function Main({defaultPosition, updatePosition}) {
 }
 
 Main.propTypes = {
-  defaultPosition: PropTypes.arrayOf(PropTypes.number),
-  updatePosition: PropTypes.number
+  defaultPosition: PropTypes.object,
+  updatePosition: PropTypes.func
 }

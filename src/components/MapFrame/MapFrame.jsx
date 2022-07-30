@@ -11,7 +11,7 @@ export default function MapFrame({defaultCenter, defaultZoom, updatePosition}) {
 }
 
 MapFrame.propTypes = {
-  defaultCenter: PropTypes.number,
+  defaultCenter: PropTypes.array,
   defaultZoom: PropTypes.number,
-  updatePosition: PropTypes.number
+  updatePosition: PropTypes.func
 }

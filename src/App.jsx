@@ -4,11 +4,8 @@ import { Routes, Route } from 'react-router-dom';
 import Main from "./pages/Main/Main";
 import About from "./pages/About/About";
 import { useState } from "react";
-import axios from "axios";
 
-function App() {
-  axios.get('/api/db').then(res => console.log(res.data));
-  
+function App() {  
   const [defaultPosition, setDefaultPosition] = useState({defaultCenter: [50.450001, 30.523333], defaultZoom: 14});
   const updatePosition = ({center, zoom}) => {
     setDefaultPosition({defaultCenter: center, defaultZoom: zoom})
