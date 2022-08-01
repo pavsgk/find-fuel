@@ -1,4 +1,4 @@
-export function calculateDistance(latA, longA, latB, longB, km = true) {
+function calculateDistance(latA, longA, latB, longB, km = true) {
   const degToRadian = deg => (deg * Math.PI) / 180;
 
   const earthRadius = km ? 6371 : 3958.8;
@@ -11,19 +11,36 @@ export function calculateDistance(latA, longA, latB, longB, km = true) {
   return earthRadius * c;
 }
 
-export function generateRandomCoordinates(latLimit = 90, longLimit = 180) {
+function generateRandomCoordinates(latLimit = 90, longLimit = 180) {
   const latFactor = Math.random() > 0.5 ? 1 : -1;
   const longFactor = Math.random() > 0.5 ? 1 : -1;
   return [Math.random() * latLimit * latFactor, Math.random() * longLimit * longFactor];
 }
 
-export function generateCoordinates(lat, long, radius) {
-  const direction = () => Math.random() > 0.5 ? 1 : -1;
-  const shiftLimit = radius / 111000;
-  const latShift = (Math.random() * shiftLimit) * direction();
-  const longShift = (Math.random() * shiftLimit) * direction();
-
-  const result = [lat + latShift, long + longShift];
-
-  return [...result, calculateDistance(lat, long, result[0], result[1])];
+function generateCoordinates(lat, long, aproxRadius = 1000) {
+  const rad = aproxRadius / 111300;
+  const [u, v] = [Math.random(), Math.random()];
+  const w = rad * Math.sqrt(u);
+  const t = 2 * Math.PI * v;
+  const x = w * Math.sin(t);
+  const y = (w * Math.cos(t)) / Math.cos(long);
+  const newLat = lat + x;
+  const newLong = long + y;
+  return [newLat, newLong, calculateDistance(lat, long, newLat, newLong)];
 }
+
+export {calculateDistance, generateRandomCoordinates, generateCoordinates};
+
+// impl b:
+// function generateCoordinates(lat, long, aproxRadius = 1000) {
+//   const rad = aproxRadius / 111300;
+//   const [y0, x0] = [lat, long];
+//   const [u, v] = [Math.random(), Math.random()];
+//   const w = rad * Math.sqrt(u);
+//   const t = 2 * Math.PI * v;
+//   const x1 = (w * Math.cos(t)) / Math.cos(x0);
+//   const y1 = w * Math.sin(t);
+//   const newLat = y0 + y1;
+//   const newLong = x0 + x1;
+//   return [newLat, newLong, calculateDistance(lat, long, newLat, newLong)];
+// }

@@ -1,11 +1,13 @@
 import PropTypes from "prop-types"
 import { Map, Marker } from "pigeon-maps";
 import { osm } from 'pigeon-maps/providers';
-import { generateCoordinates } from "../../utils/utils";
+import { calculateDistance, generateCoordinates } from "../../utils/utils";
 import { useLayoutEffect, useRef } from "react";
 
-const randomCoordinates = Array.from({length: 100}).map(() => generateCoordinates(50.450001, 30.523333, 10000));
-console.log(randomCoordinates);
+const randomCoordinates = Array
+  .from({length: 1000})
+  .map(() => generateCoordinates(50.450001, 30.523333, 10000))
+  .filter(cord => cord[2] > 9.7);
 export default function MapFrame({defaultCenter, defaultZoom, updatePosition}) {
   const mapRef = useRef(null);
 
@@ -15,8 +17,9 @@ export default function MapFrame({defaultCenter, defaultZoom, updatePosition}) {
       updatePosition({center, zoom});
     }
   },[]);
+  
   const handleClick = ({anchor}) => {
-    console.log(anchor[0], anchor[1]);
+    console.log(anchor[0], anchor[1], calculateDistance(50.450001, 30.523333, anchor[0], anchor[1]));
   }
 
   return (
