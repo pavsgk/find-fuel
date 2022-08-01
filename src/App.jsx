@@ -6,7 +6,7 @@ import About from "./pages/About/About";
 import { useState } from "react";
 
 function App() {  
-  const [defaultPosition, setDefaultPosition] = useState({defaultCenter: [50.450001, 30.523333], defaultZoom: 14});
+  const [defaultPosition, setDefaultPosition] = useState({defaultCenter: [50.450001, 30.523333], defaultZoom: 10});
   const updatePosition = ({center, zoom}) => {
     setDefaultPosition({defaultCenter: center, defaultZoom: zoom})
   };
