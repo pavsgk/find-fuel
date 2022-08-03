@@ -29,7 +29,25 @@ function generateCoordinates(lat, long, aproxRadius = 1000) {
   return [newLat, newLong, calculateDistance(lat, long, newLat, newLong)];
 }
 
-export {calculateDistance, generateRandomCoordinates, generateCoordinates};
+function getRandomItem(items) {
+  return items[Math.floor(Math.random() * items.length)];
+}
+
+function getFewItems(items, count) {
+  if (!count) count = Math.floor(Math.random() * items.length);
+  if (count <= 1 || items.length <= 1) return [items[Math.floor(Math.random() * items.length)]];
+  if (count >= items.length) return items;
+  
+  const selectedItems = [];
+  while (selectedItems.length < count) {
+    const randomItem = items[Math.floor(Math.random() * items.length)];
+    if (!selectedItems.includes(randomItem)) selectedItems.push(randomItem);
+  }
+
+  return selectedItems;
+}
+
+export {calculateDistance, generateRandomCoordinates, generateCoordinates, getRandomItem, getFewItems};
 
 // impl b:
 // function generateCoordinates(lat, long, aproxRadius = 1000) {
