@@ -1,16 +1,10 @@
-import PropTypes from "prop-types"
 import MapFrame from '../../components/MapFrame/MapFrame';
 import styles from './Main.module.scss';
 
-export default function Main({defaultPosition, updatePosition}) {
+export default function Main() {
   return (
     <div className={styles.Main}>
-      <MapFrame {...defaultPosition} updatePosition={updatePosition}/>
+      <MapFrame />
     </div>
   )
-}
-
-Main.propTypes = {
-  defaultPosition: PropTypes.object,
-  updatePosition: PropTypes.func
 }
