@@ -1,5 +1,5 @@
-export function dbParser(json) {
-  const vocabulary = json.reduce((vocab, location) => {
+export function dbParser(locationList) {
+  const vocabulary = locationList.reduce((vocab, location) => {
     for (const [key] of Object.entries(location)) {
       if (!(key in vocab)) {
         vocab[key] = [];

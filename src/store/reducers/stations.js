@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { requestStations } from "../../utils/api";
 
 const initialState = {
   db: [],
@@ -10,16 +10,15 @@ const initialState = {
   isLoading: true,
 }
 
-export const getStations = createAsyncThunk('stations/get', async () => {
-  const {data} = await axios.get('api/stations');
-  return data;
-})
+export const getStations = createAsyncThunk('stations/get', async () => await requestStations());
 
 const stationsSlice = createSlice({
   name: 'stations',
   initialState,
   reducers: {
-    
+    filterStations: (state, {payload}) => {
+      state.filtered = state.db;
+    }
   },
   extraReducers: {
     [getStations.fulfilled]: (state, {payload}) => {
