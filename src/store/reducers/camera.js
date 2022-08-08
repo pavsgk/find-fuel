@@ -1,8 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  defaultCenter: [50.450001, 30.523333],
-  defaultCenterZoom: 14,
+  center: [30.523333, 50.450001],
+  zoom: 14,
+  stylesVisibility: {
+    trafficFlow: false,
+    trafficIncidents: false,
+  }
 }
 
 const cameraSlice = createSlice({
@@ -10,11 +14,15 @@ const cameraSlice = createSlice({
   initialState,
   reducers: {
     updatePosition(state, {payload: {center, zoom}}) {
-      state.defaultCenter = center;
-      state.defaultZoom = zoom;
+      state.center = center;
+      state.zoom = zoom;
+    },
+    updateStylesVisibility(state, {payload: {name, value}}) {
+      state.stylesVisibility[name] = value;
     }
   }
+
 })
 
-export const { updatePosition } = cameraSlice.actions;
+export const { updatePosition, updateStylesVisibility } = cameraSlice.actions;
 export default cameraSlice.reducer;

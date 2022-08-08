@@ -12,7 +12,10 @@ const initialState = {
   isLoading: true,
 }
 
-export const getStations = createAsyncThunk('stations/get', async () => await requestStations());
+export const getStations = createAsyncThunk('stations/get', async () => {
+  const response = await requestStations();
+  return response.results;
+});
 
 const stationsSlice = createSlice({
   name: 'stations',
