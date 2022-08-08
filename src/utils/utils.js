@@ -47,7 +47,35 @@ function getFewItems(items, count) {
   return selectedItems;
 }
 
-export {calculateDistance, generateRandomCoordinates, generateCoordinates, getRandomItem, getFewItems};
+function instantDebounce(fn, cooldown = 1000) {
+  let isCooldown = false;
+  let timer = 0;
+
+  return function() {
+    if (isCooldown) {
+      clearTimeout(timer);
+    } else {
+      fn.apply(this, arguments);
+      isCooldown = true;
+    }
+
+    clearTimeout(timer);
+    timer = setTimeout(() => isCooldown = false, cooldown);
+  }
+}
+
+function delayedDebounce(fn, cooldown = 1000) {
+  let timer = 0;
+
+  return function() {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      fn.apply(this, arguments);
+    }, cooldown);
+  }
+}
+
+export {delayedDebounce, instantDebounce, calculateDistance, generateRandomCoordinates, generateCoordinates, getRandomItem, getFewItems};
 
 // impl b:
 // function generateCoordinates(lat, long, aproxRadius = 1000) {
