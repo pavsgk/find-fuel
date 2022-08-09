@@ -24,8 +24,6 @@ export default function MapControls() {
   }
 
   return (<div>
-    
-      {/* {stylesVisibility.map(option => <CheckBox value={option.id} label={option.verbose} key={option.id} />)} */}
       {options.map(option => 
         <FormControlLabel
           key={option.id}

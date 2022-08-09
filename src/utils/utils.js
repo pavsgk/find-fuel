@@ -1,7 +1,7 @@
 function calculateDistance(latA, longA, latB, longB, km = true) {
   const degToRadian = deg => (deg * Math.PI) / 180;
 
-  const earthRadius = km ? 6371 : 3958.8;
+  const earthRadius = km ? 6371000 : 3958800;
   const distLat = degToRadian(latB - latA);
   const distLong = degToRadian(longB - longA);
   const a = Math.sin(distLat / 2) * Math.sin(distLat / 2) + Math.cos(degToRadian(latA)) * 
@@ -75,7 +75,11 @@ function delayedDebounce(fn, cooldown = 1000) {
   }
 }
 
-export {delayedDebounce, instantDebounce, calculateDistance, generateRandomCoordinates, generateCoordinates, getRandomItem, getFewItems};
+function limitFloat(float, digits = 3) {
+  return Number.prototype.toFixed.call(float, digits);
+}
+
+export {limitFloat, delayedDebounce, instantDebounce, calculateDistance, generateRandomCoordinates, generateCoordinates, getRandomItem, getFewItems};
 
 // impl b:
 // function generateCoordinates(lat, long, aproxRadius = 1000) {

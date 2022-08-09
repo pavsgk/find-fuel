@@ -4,7 +4,7 @@ import { calculateDistance } from "../../utils/utils";
 
 const initialState = {
   db: [],
-  mark: [50.450001, 30.523333],
+  myPosition: [30.523333, 50.450001],
   filters: {},
   filtered: [],
   isReady: false,
@@ -23,16 +23,19 @@ const stationsSlice = createSlice({
   reducers: {
     filterStations: (state, {payload}) => {
       state.filtered = state.db;
+    },
+    setMyPosition: (state, {payload}) => {
+      state.myPosition = payload;
     }
   },
   extraReducers: {
     [getStations.fulfilled]: (state, {payload}) => {
-      const [lat, long] = state.mark;
-      console.log(lat, long)
+      const [lng, lat] = state.myPosition;
       state.db = payload.map(station => {
-        station['distance'] = calculateDistance(station['latitude'], station['longitude'], lat, long);
+        station['distance'] = calculateDistance(station.position.lat, station.position.lon, lat, lng);
         return station;
       });
+      console.log(state.db);
 
       state.isReady = true;
       state.isLoading = false;
@@ -48,4 +51,5 @@ const stationsSlice = createSlice({
   }
 })
 
+export const {setMyPosition} = stationsSlice.actions;
 export default stationsSlice.reducer;

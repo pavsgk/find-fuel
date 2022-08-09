@@ -4,12 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updatePosition } from "../../store/reducers/camera";
 import styles from "./MapFrame.module.scss";
+import { addMyPosition } from './MapFrameUtils';
 
 export default function MapFrame() {
   const dispatch = useDispatch();
   const mapElement = useRef(null);
   const [map, setMap] = useState({});
   const {center, zoom} = useSelector(({camera}) => camera);
+  const {myPosition} = useSelector(({stations}) => stations)
   const {trafficFlow, trafficIncidents} = useSelector(({camera: {stylesVisibility}}) => stylesVisibility)
 
   useEffect(() => {
@@ -24,8 +26,10 @@ export default function MapFrame() {
       zoom,
     });
     map.addControl(new tt.FullscreenControl());
-    map.addControl(new tt.NavigationControl())
+    map.addControl(new tt.NavigationControl());
     setMap(map);
+
+    addMyPosition(map, myPosition, dispatch, styles.startMarker);
 
     return () => {
       const {lng, lat} = map.getCenter();
@@ -55,6 +59,7 @@ export default function MapFrame() {
 
 
   return (
-    <div ref={mapElement} className={styles.mapDiv}></div>
-  )
+    <>
+      <div ref={mapElement} className={styles.mapDiv}></div> 
+    </>)
 }
