@@ -1,7 +1,7 @@
 import { FormControlLabel, Switch } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateStylesVisibility } from '../../store/reducers/camera'
-import styles from './MapControls.module.scss';
+import styles from './MapControls.module.scss'
 import Gps from '../Gps/Gps'
 
 const options = [

@@ -6,14 +6,19 @@ import { updatePosition } from '../../store/reducers/camera'
 import styles from './MapFrame.module.scss'
 import { addOriginMarker, addStationMarker, renderLayers } from './MapFrameUtils'
 
-const markers = [];
+const markers = []
+
+const renderStations = (markersArray, stations, map) => {
+  markersArray.forEach((marker, index) => (index > 0 ? marker.remove() : void 0))
+  stations.map((station) => addStationMarker(map, station, styles.stationMarker))
+}
 
 export default function MapFrame() {
   const dispatch = useDispatch()
   const mapElement = useRef(null)
   const [map, setMap] = useState({})
   const { center, zoom } = useSelector(({ camera }) => camera)
-  const { myPosition, db } = useSelector(({ stations }) => stations)
+  const { myPosition, db: stations } = useSelector(({ stations }) => stations)
   const { trafficFlow, trafficIncidents, poi } = useSelector(({ camera: { stylesVisibility } }) => stylesVisibility)
 
   useEffect(() => {
@@ -32,8 +37,8 @@ export default function MapFrame() {
     map.addControl(new tt.NavigationControl())
     setMap(map)
 
-    markers.push(addOriginMarker(map, myPosition, dispatch, styles.startMarker, styles.startMarkerPopup));
-    db.map((station) => addStationMarker(map, station, styles.stationMarker))
+    markers.push(addOriginMarker(map, myPosition, dispatch, styles.startMarker, styles.startMarkerPopup))
+    renderStations(markers, stations, map)
 
     return () => {
       const { lng, lat } = map.getCenter()
@@ -45,18 +50,19 @@ export default function MapFrame() {
           zoom,
         })
       )
-      map.remove();
-      markers.length = 0;
+      map.remove()
+      markers.length = 0
     }
   }, [])
 
   useLayoutEffect(() => renderLayers(map, { trafficFlow, trafficIncidents, poi }), [trafficFlow, trafficIncidents, poi])
   useLayoutEffect(() => {
-    if (markers[0]) {
-      markers[0].setLngLat([myPosition[0], myPosition[1]]);
-      map.setCenter([myPosition[0], myPosition[1]]);
+    if (markers[0] && map.setCenter) {
+      markers[0].setLngLat([myPosition[0], myPosition[1]])
+      map.setCenter([myPosition[0], myPosition[1]])
+      renderStations(markers, stations, map)
     }
-  }, [myPosition[0], myPosition[1]]);
+  }, [myPosition[0], myPosition[1]])
 
   return (
     <>

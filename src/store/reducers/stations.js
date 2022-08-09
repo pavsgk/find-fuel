@@ -17,6 +17,15 @@ export const getStations = createAsyncThunk('stations/get', async () => {
   return response.results
 })
 
+const recalculateDistances = (stations, { lng, lat }) => {
+  return stations
+    .map((station) => {
+      station['dist'] = calculateDistance(station.position.lat, station.position.lon, lat, lng)
+      return station
+    })
+    .sort((stationA, stationB) => stationA.dist - stationB.dist)
+}
+
 const stationsSlice = createSlice({
   name: 'stations',
   initialState,
@@ -26,17 +35,14 @@ const stationsSlice = createSlice({
     },
     setMyPosition: (state, { payload }) => {
       state.myPosition = payload
+      const [lng, lat] = payload
+      state.db = recalculateDistances(state.db, { lng, lat })
     },
   },
   extraReducers: {
     [getStations.fulfilled]: (state, { payload }) => {
       const [lng, lat] = state.myPosition
-      state.db = payload.map((station) => {
-        station['distance'] = calculateDistance(station.position.lat, station.position.lon, lat, lng)
-        return station
-      })
-      console.log(state.db)
-
+      state.db = recalculateDistances(payload, { lng, lat })
       state.isReady = true
       state.isLoading = false
     },
