@@ -20,10 +20,13 @@ export const addOriginMarker = (map, pos, dispatch, className) => {
   startMarker.setPopup(popup).togglePopup()
 
   startMarker.on('dragend', () => {
+    console.log(startMarker.getLngLat());
     const { lng, lat } = startMarker.getLngLat()
     popup.setHTML(`Starting point ${limitFloat(lng)} ${limitFloat(lat)}`)
     dispatch(setMyPosition([lng, lat]))
   })
+
+  return startMarker;
 }
 
 export const renderLayers = (map, { trafficFlow, trafficIncidents, poi }) => {
@@ -42,10 +45,12 @@ export const addStationMarker = (map, station, markerClassName, popupClassname) 
   const element = document.createElement('div')
   const {
     position: { lat, lon },
+    poi: { name },
+    dist
   } = station
   element.className = markerClassName
 
-  const popup = new tt.Popup({ offset: { bottom: [0, -10] } }).setHTML(`${station.poi.name}`)
+  const popup = new tt.Popup({ offset: { bottom: [0, -10] } }).setHTML(`${name}, ${dist}m`)
 
   const marker = new tt.Marker({ element }).setLngLat([lon, lat]).addTo(map)
 

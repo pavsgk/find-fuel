@@ -6,6 +6,8 @@ import { updatePosition } from '../../store/reducers/camera'
 import styles from './MapFrame.module.scss'
 import { addOriginMarker, addStationMarker, renderLayers } from './MapFrameUtils'
 
+const markers = [];
+
 export default function MapFrame() {
   const dispatch = useDispatch()
   const mapElement = useRef(null)
@@ -30,7 +32,7 @@ export default function MapFrame() {
     map.addControl(new tt.NavigationControl())
     setMap(map)
 
-    addOriginMarker(map, myPosition, dispatch, styles.startMarker, styles.startMarkerPopup)
+    markers.push(addOriginMarker(map, myPosition, dispatch, styles.startMarker, styles.startMarkerPopup));
     db.map((station) => addStationMarker(map, station, styles.stationMarker))
 
     return () => {
@@ -43,11 +45,18 @@ export default function MapFrame() {
           zoom,
         })
       )
-      map.remove()
+      map.remove();
+      markers.length = 0;
     }
   }, [])
 
   useLayoutEffect(() => renderLayers(map, { trafficFlow, trafficIncidents, poi }), [trafficFlow, trafficIncidents, poi])
+  useLayoutEffect(() => {
+    if (markers[0]) {
+      markers[0].setLngLat([myPosition[0], myPosition[1]]);
+      map.setCenter([myPosition[0], myPosition[1]]);
+    }
+  }, [myPosition[0], myPosition[1]]);
 
   return (
     <>
