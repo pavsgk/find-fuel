@@ -1,5 +1,5 @@
 const urls = {
-  stations: '/api/stations'
+  stations: '/api/stations',
 }
 
-export { urls };
+export { urls }
