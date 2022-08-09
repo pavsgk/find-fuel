@@ -10,7 +10,12 @@ const options = [{
   id: 'sv02',
   name: "trafficIncidents",
   verbose: "Traffic incidents"
-}];
+},{
+  id: 'sv03',
+  name: "poi",
+  verbose: "POI"
+}
+];
 
 export default function MapControls() {
   const dispatch = useDispatch();

@@ -8,13 +8,9 @@
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.9.3",
     "@reduxjs/toolkit": "^1.8.3",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^13.5.0",
     "@tomtom-international/web-sdk-maps": "^6.20.0",
     "axios": "^0.27.2",
     "msw": "^0.44.2",
-    "pigeon-maps": "^0.21.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.2",
@@ -50,7 +46,10 @@
   "devDependencies": {
     "eslint": "^8.20.0",
     "eslint-plugin-react": "^7.30.1",
-    "sass": "^1.54.0"
+    "sass": "^1.54.0",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^13.5.0"
   },
   "msw": {
     "workerDirectory": "public"

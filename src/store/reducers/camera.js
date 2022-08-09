@@ -6,6 +6,7 @@ const initialState = {
   stylesVisibility: {
     trafficFlow: false,
     trafficIncidents: false,
+    poi: false,
   }
 }
 
