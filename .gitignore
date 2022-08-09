@@ -19,7 +19,8 @@
 .env.test.local
 .env.production.local
 README.bak
-src/mocks/stations.js
+/src/mocks/tomtom_kyiv.js
+/src/mocks/stations.js
 
 package-lock.json
 yarn.lock
