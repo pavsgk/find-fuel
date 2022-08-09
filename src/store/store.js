@@ -1,15 +1,14 @@
-
-import { configureStore } from "@reduxjs/toolkit";
-import camera from "./reducers/camera"
-import stations from "./reducers/stations";
+import { configureStore } from '@reduxjs/toolkit'
+import camera from './reducers/camera'
+import stations from './reducers/stations'
 
 stations
 
 const store = configureStore({
   reducer: {
     camera,
-    stations
-  }
+    stations,
+  },
 })
 
-export default store;
+export default store
