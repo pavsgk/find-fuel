@@ -1,10 +1,10 @@
 import { FormControlLabel, Switch } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
-import { updateStylesVisibility } from '../../store/reducers/camera'
+import { toggleAutofocus, updateStylesVisibility } from '../../store/reducers/camera'
 import styles from './MapControls.module.scss'
 import Gps from '../Gps/Gps'
 
-const options = [
+const stylesOptions = [
   {
     id: 'sv01',
     name: 'trafficFlow',
@@ -24,9 +24,9 @@ const options = [
 
 export default function MapControls() {
   const dispatch = useDispatch()
-  const { stylesVisibility } = useSelector(({ camera }) => camera)
+  const { stylesVisibility, isAutofocus } = useSelector(({ camera }) => camera)
 
-  const handleChange = ({ target }, name) => {
+  const handleStylesChange = ({ target }, name) => {
     dispatch(
       updateStylesVisibility({
         name,
@@ -38,11 +38,18 @@ export default function MapControls() {
   return (
     <div className={styles.MapControls}>
       <Gps />
-      {options.map((option) => (
+      <FormControlLabel
+        control={<Switch checked={isAutofocus} onChange={() => dispatch(toggleAutofocus())} />}
+        label={'Autofocus'}
+      />
+      {stylesOptions.map((option) => (
         <FormControlLabel
           key={option.id}
           control={
-            <Switch checked={stylesVisibility[option.name]} onChange={(event) => handleChange(event, option.name)} />
+            <Switch
+              checked={stylesVisibility[option.name]}
+              onChange={(event) => handleStylesChange(event, option.name)}
+            />
           }
           label={option.verbose}
         />

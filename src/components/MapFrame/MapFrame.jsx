@@ -17,9 +17,10 @@ export default function MapFrame() {
   const dispatch = useDispatch()
   const mapElement = useRef(null)
   const [map, setMap] = useState({})
-  const { center, zoom } = useSelector(({ camera }) => camera)
+  const { center, zoom, isAutofocus } = useSelector(({ camera }) => camera)
   const { myPosition, db: stations } = useSelector(({ stations }) => stations)
   const { trafficFlow, trafficIncidents, poi } = useSelector(({ camera: { stylesVisibility } }) => stylesVisibility)
+  console.log('render');
 
   useEffect(() => {
     const map = tt.map({
@@ -59,14 +60,14 @@ export default function MapFrame() {
   useLayoutEffect(() => {
     if (markers[0] && map.setCenter) {
       markers[0].setLngLat([myPosition[0], myPosition[1]])
-      map.setCenter([myPosition[0], myPosition[1]])
+      if (isAutofocus) map.setCenter([myPosition[0], myPosition[1]])
       renderStations(markers, stations, map)
     }
   }, [myPosition[0], myPosition[1]])
 
   return (
     <>
-      <div ref={mapElement} className={styles.mapDiv}></div>
+      <div ref={mapElement} className={styles.mapDiv} />
     </>
   )
 }
