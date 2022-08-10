@@ -18,8 +18,8 @@ export const addOriginMarker = (map, pos, dispatch, className) => {
   const element = document.createElement('div')
   element.className = className
 
-  const popup = new tt.Popup({ offset: { bottom: [0, -10] } }).setHTML(
-    `Starting point ${limitFloat(pos[0])} ${limitFloat(pos[1])}`
+  const popup = new tt.Popup({ offset: { bottom: [-5, -25] } }).setHTML(
+    `${limitFloat(pos[1])} ${limitFloat(pos[0])}`
   )
 
   const startMarker = new tt.Marker({
@@ -33,7 +33,7 @@ export const addOriginMarker = (map, pos, dispatch, className) => {
 
   startMarker.on('dragend', () => {
     const { lng, lat } = startMarker.getLngLat()
-    popup.setHTML(`Starting point ${limitFloat(lng)} ${limitFloat(lat)}`)
+    popup.setHTML(`${limitFloat(lat)} ${limitFloat(lng)}`)
     dispatch(setMyPosition([lng, lat]))
   })
 
