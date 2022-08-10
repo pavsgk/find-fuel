@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { requestStations } from '../../utils/api'
-import { calculateDistance } from '../../utils/utils'
+import { calculateDistance, flattenObject } from '../../utils/utils'
 
 const initialState = {
   db: [],
@@ -14,13 +14,14 @@ const initialState = {
 
 export const getStations = createAsyncThunk('stations/get', async () => {
   const response = await requestStations()
-  return response.results
+  const shapedResults = response.results.map(flattenObject);
+  return shapedResults;
 })
 
 const recalculateDistances = (stations, { lng, lat }) => {
   return stations
     .map((station) => {
-      station['dist'] = calculateDistance(station.position.lat, station.position.lon, lat, lng)
+      station['dist'] = calculateDistance(station.position_lat, station.position_lon, lat, lng)
       return station
     })
     .sort((stationA, stationB) => stationA.dist - stationB.dist)

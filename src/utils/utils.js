@@ -80,7 +80,28 @@ function limitFloat(float, digits = 3) {
   return Number.prototype.toFixed.call(float, digits)
 }
 
+function flattenObject(obj) {
+  const result = {};
+
+  for (const prop in obj) {
+    if (!Object.prototype.hasOwnProperty.call(obj, prop)) continue;
+
+    if ((typeof obj[prop]) == 'object' && obj[prop] !== null) {
+      const flatObject = flattenObject(obj[prop]);
+      for (const flatProp in flatObject) {
+        if (!Object.prototype.hasOwnProperty.call(flatObject , flatProp)) continue;
+        const newName = `${prop}_${flatProp}`;
+        result[newName] = flatObject[flatProp];
+      }
+    } else {
+        result[prop] = obj[prop];
+    }
+  }
+  return result;
+}
+
 export {
+  flattenObject,
   limitFloat,
   delayedDebounce,
   instantDebounce,

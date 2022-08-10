@@ -43,8 +43,8 @@ export const addOriginMarker = (map, pos, dispatch, className) => {
 export const addStationMarker = (map, station, markerClassName, popupClassname) => {
   const element = document.createElement('div')
   const {
-    position: { lat, lon },
-    poi: { name },
+    position_lat: lat, position_lon: lon,
+    poi_name: name,
     dist,
   } = station
   element.className = markerClassName
