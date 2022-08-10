@@ -5,7 +5,7 @@ import { calculateDistance } from '../../utils/utils'
 const initialState = {
   db: [],
   myPosition: [30.523333, 50.450001],
-  filters: {},
+  filters: { radius: 5000 },
   filtered: [],
   isReady: false,
   isError: false,
@@ -30,19 +30,23 @@ const stationsSlice = createSlice({
   name: 'stations',
   initialState,
   reducers: {
-    filterStations: (state, { payload }) => {
-      state.filtered = state.db
+    updateFilters: (state, { payload }) => {
+      state.filters = { ...state.filters, ...payload }
+      const updatedStationsList = recalculateDistances(state.db, { lng: state.myPosition[0], lat: state.myPosition[1] })
+      state.filtered = updatedStationsList.filter((el) => el.dist < state.filters.radius)
     },
     setMyPosition: (state, { payload }) => {
       state.myPosition = payload
       const [lng, lat] = payload
-      state.db = recalculateDistances(state.db, { lng, lat })
+      const updatedStationsList = recalculateDistances(state.db, { lng, lat })
+      state.filtered = updatedStationsList.filter((el) => el.dist < state.filters.radius)
     },
   },
   extraReducers: {
     [getStations.fulfilled]: (state, { payload }) => {
       const [lng, lat] = state.myPosition
       state.db = recalculateDistances(payload, { lng, lat })
+      state.filtered = state.db.filter((el) => el.dist < state.filters.radius)
       state.isReady = true
       state.isLoading = false
     },
@@ -57,5 +61,5 @@ const stationsSlice = createSlice({
   },
 })
 
-export const { setMyPosition } = stationsSlice.actions
+export const { setMyPosition, updateFilters } = stationsSlice.actions
 export default stationsSlice.reducer

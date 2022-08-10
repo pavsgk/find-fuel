@@ -10,7 +10,7 @@ const markers = []
 
 const renderStations = (markersArray, stations, map) => {
   markersArray.forEach((marker, index) => (index > 0 ? marker.remove() : void 0))
-  stations.map((station) => addStationMarker(map, station, styles.stationMarker))
+  stations.map((station) => markersArray.push(addStationMarker(map, station, styles.stationMarker)))
 }
 
 export default function MapFrame() {
@@ -18,9 +18,14 @@ export default function MapFrame() {
   const mapElement = useRef(null)
   const [map, setMap] = useState({})
   const { center, zoom, isAutofocus } = useSelector(({ camera }) => camera)
-  const { myPosition, db: stations } = useSelector(({ stations }) => stations)
+  const { myPosition, filtered: stations } = useSelector(({ stations }) => stations)
   const { trafficFlow, trafficIncidents, poi } = useSelector(({ camera: { stylesVisibility } }) => stylesVisibility)
-  console.log('render');
+
+  useEffect(() => {
+    if (map.loaded) {
+      renderStations(markers, stations, map)
+    }
+  }, [stations.length])
 
   useEffect(() => {
     const map = tt.map({
@@ -51,8 +56,8 @@ export default function MapFrame() {
           zoom,
         })
       )
-      map.remove()
       markers.length = 0
+      map.remove()
     }
   }, [])
 

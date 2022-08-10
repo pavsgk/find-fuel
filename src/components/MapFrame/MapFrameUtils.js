@@ -52,6 +52,7 @@ export const addStationMarker = (map, station, markerClassName, popupClassname) 
   const popup = new tt.Popup({ offset: { bottom: [0, -10] } }).setHTML(`${name}, ${limitFloat(dist, 1)}m`)
 
   const marker = new tt.Marker({ element }).setLngLat([lon, lat]).addTo(map)
-
   marker.setPopup(popup)
+
+  return marker
 }

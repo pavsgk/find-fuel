@@ -5,8 +5,8 @@ const initialState = {
   zoom: 14,
   isAutofocus: true,
   stylesVisibility: {
-    trafficFlow: false,
-    trafficIncidents: false,
+    trafficFlow: true,
+    trafficIncidents: true,
     poi: false,
   },
 }
