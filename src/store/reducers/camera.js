@@ -3,9 +3,10 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   center: [30.523333, 50.450001],
   zoom: 14,
+  isAutofocus: true,
   stylesVisibility: {
-    trafficFlow: false,
-    trafficIncidents: false,
+    trafficFlow: true,
+    trafficIncidents: true,
     poi: false,
   },
 }
@@ -14,6 +15,9 @@ const cameraSlice = createSlice({
   name: 'camera',
   initialState,
   reducers: {
+    toggleAutofocus(state) {
+      state.isAutofocus = !state.isAutofocus
+    },
     updatePosition(state, { payload: { center, zoom } }) {
       state.center = center
       state.zoom = zoom
@@ -24,5 +28,5 @@ const cameraSlice = createSlice({
   },
 })
 
-export const { updatePosition, updateStylesVisibility } = cameraSlice.actions
+export const { updatePosition, updateStylesVisibility, toggleAutofocus } = cameraSlice.actions
 export default cameraSlice.reducer

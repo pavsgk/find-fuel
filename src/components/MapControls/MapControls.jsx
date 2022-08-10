@@ -1,8 +1,14 @@
-import { FormControlLabel, Switch } from '@mui/material'
+import { Box, FormControlLabel, Slider, Switch, TextField } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
-import { updateStylesVisibility } from '../../store/reducers/camera'
+import { toggleAutofocus, updateStylesVisibility } from '../../store/reducers/camera'
+import styles from './MapControls.module.scss'
+import Gps from '../Gps/Gps'
+import { updateFilters } from '../../store/reducers/stations'
+import { useEffect, useState } from 'react'
+import { delayedDebounce } from '../../utils/utils'
+import store from '../../store/store'
 
-const options = [
+const stylesOptions = [
   {
     id: 'sv01',
     name: 'trafficFlow',
@@ -20,11 +26,19 @@ const options = [
   },
 ]
 
+const delayedRadiusUpdate = delayedDebounce((param, dispatch) => dispatch(updateFilters(param)))
+
 export default function MapControls() {
   const dispatch = useDispatch()
-  const { stylesVisibility } = useSelector(({ camera }) => camera)
+  const { stylesVisibility, isAutofocus } = useSelector(({ camera }) => camera)
+  const [radius, setRadius] = useState(5)
 
-  const handleChange = ({ target }, name) => {
+  useEffect(() => {
+    const initRadius = store.getState().stations.filters.radius
+    setRadius(initRadius / 1000)
+  }, [])
+
+  const handleStylesChange = ({ target }, name) => {
     dispatch(
       updateStylesVisibility({
         name,
@@ -33,13 +47,31 @@ export default function MapControls() {
     )
   }
 
+  const handleRadius = ({ target: { value } }) => {
+    if (value * 1000 === radius) return
+    setRadius(value)
+    delayedRadiusUpdate({ radius: value * 1000 }, dispatch)
+  }
+
   return (
-    <div>
-      {options.map((option) => (
+    <div className={styles.MapControls}>
+      <Gps />
+      <FormControlLabel
+        control={<Switch checked={isAutofocus} onChange={() => dispatch(toggleAutofocus())} />}
+        label={'Autofocus'}
+      />
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+        <Slider value={radius} step={1} min={1} max={20} onChange={handleRadius} />
+        <TextField size="small" label="max distance" disabled value={`${radius} km`} />
+      </Box>
+      {stylesOptions.map((option) => (
         <FormControlLabel
           key={option.id}
           control={
-            <Switch checked={stylesVisibility[option.name]} onChange={(event) => handleChange(event, option.name)} />
+            <Switch
+              checked={stylesVisibility[option.name]}
+              onChange={(event) => handleStylesChange(event, option.name)}
+            />
           }
           label={option.verbose}
         />
