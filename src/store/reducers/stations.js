@@ -1,11 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { requestStations } from '../../utils/api'
+import { dbParser, filterByField } from '../../utils/parsers'
 import { calculateDistance, flattenObject } from '../../utils/utils'
 
 const initialState = {
   db: [],
   myPosition: [30.523333, 50.450001],
-  filters: { radius: 5000 },
+  filters: { radius: 5000, brand: [] },
   filtered: [],
   isReady: false,
   isError: false,
@@ -14,8 +15,8 @@ const initialState = {
 
 export const getStations = createAsyncThunk('stations/get', async () => {
   const response = await requestStations()
-  const shapedResults = response.results.map(flattenObject);
-  return shapedResults;
+  const shapedResults = response.results.map(flattenObject)
+  return shapedResults
 })
 
 const recalculateDistances = (stations, { lng, lat }) => {
@@ -27,27 +28,37 @@ const recalculateDistances = (stations, { lng, lat }) => {
     .sort((stationA, stationB) => stationA.dist - stationB.dist)
 }
 
+const applyFilters = (state) => {
+  let updatedStationsList = recalculateDistances(state.db, {
+    lng: state.myPosition[0],
+    lat: state.myPosition[1],
+  }).filter((el) => el.dist < state.filters.radius)
+
+  const { brand } = state.filters
+  if (brand.length) {
+    updatedStationsList = filterByField(updatedStationsList, 'poi_brands_0_name', brand)
+  }
+
+  return updatedStationsList
+}
+
 const stationsSlice = createSlice({
   name: 'stations',
   initialState,
   reducers: {
     updateFilters: (state, { payload }) => {
       state.filters = { ...state.filters, ...payload }
-      const updatedStationsList = recalculateDistances(state.db, { lng: state.myPosition[0], lat: state.myPosition[1] })
-      state.filtered = updatedStationsList.filter((el) => el.dist < state.filters.radius)
+      state.filtered = applyFilters(state)
     },
     setMyPosition: (state, { payload }) => {
       state.myPosition = payload
-      const [lng, lat] = payload
-      const updatedStationsList = recalculateDistances(state.db, { lng, lat })
-      state.filtered = updatedStationsList.filter((el) => el.dist < state.filters.radius)
+      state.filtered = applyFilters(state)
     },
   },
   extraReducers: {
     [getStations.fulfilled]: (state, { payload }) => {
-      const [lng, lat] = state.myPosition
-      state.db = recalculateDistances(payload, { lng, lat })
-      state.filtered = state.db.filter((el) => el.dist < state.filters.radius)
+      state.db = payload
+      state.filtered = applyFilters(state)
       state.isReady = true
       state.isLoading = false
     },

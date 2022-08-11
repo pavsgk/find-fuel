@@ -81,23 +81,23 @@ function limitFloat(float, digits = 3) {
 }
 
 function flattenObject(obj) {
-  const result = {};
+  const result = {}
 
   for (const prop in obj) {
-    if (!Object.prototype.hasOwnProperty.call(obj, prop)) continue;
+    if (!Object.prototype.hasOwnProperty.call(obj, prop)) continue
 
-    if ((typeof obj[prop]) == 'object' && obj[prop] !== null) {
-      const flatObject = flattenObject(obj[prop]);
+    if (typeof obj[prop] === 'object' && obj[prop] !== null) {
+      const flatObject = flattenObject(obj[prop])
       for (const flatProp in flatObject) {
-        if (!Object.prototype.hasOwnProperty.call(flatObject , flatProp)) continue;
-        const newName = `${prop}_${flatProp}`;
-        result[newName] = flatObject[flatProp];
+        if (!Object.prototype.hasOwnProperty.call(flatObject, flatProp)) continue
+        const newName = `${prop}_${flatProp}`
+        result[newName] = flatObject[flatProp]
       }
     } else {
-        result[prop] = obj[prop];
+      result[prop] = obj[prop]
     }
   }
-  return result;
+  return result
 }
 
 export {

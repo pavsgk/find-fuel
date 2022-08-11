@@ -18,3 +18,8 @@
   background-size: cover;
   border-radius: 50%;
 }
+
+.nearestMarker {
+  @extend .stationMarker;
+  background-image: url('./nearest.svg');
+}

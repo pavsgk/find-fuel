@@ -13,8 +13,8 @@ export default function Gps() {
   }
 
   return (
-      <IconButton onClick={handleClick}>
-        <GpsIcon />
-      </IconButton>
+    <IconButton onClick={handleClick}>
+      <GpsIcon />
+    </IconButton>
   )
 }
