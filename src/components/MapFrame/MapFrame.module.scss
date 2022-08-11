@@ -4,15 +4,22 @@
 }
 
 .startMarker {
-  width: 25px;
-  height: 25px;
-  background-color: red;
-  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  background-image: url('./start.svg');
+  background-size: cover;
+  border-radius: 20%;
 }
 
 .stationMarker {
-  width: 15px;
-  height: 15px;
-  background-color: green;
+  width: 25px;
+  height: 25px;
+  background-image: url('./station.svg');
+  background-size: cover;
   border-radius: 50%;
+}
+
+.nearestMarker {
+  @extend .stationMarker;
+  background-image: url('./nearest.svg');
 }

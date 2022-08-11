@@ -7,6 +7,7 @@ import { updateFilters } from '../../store/reducers/stations'
 import { useEffect, useState } from 'react'
 import { delayedDebounce } from '../../utils/utils'
 import store from '../../store/store'
+import BrandPicker from '../BrandPicker/BrandPicker'
 
 const stylesOptions = [
   {
@@ -60,10 +61,11 @@ export default function MapControls() {
         control={<Switch checked={isAutofocus} onChange={() => dispatch(toggleAutofocus())} />}
         label={'Autofocus'}
       />
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
         <Slider value={radius} step={1} min={1} max={20} onChange={handleRadius} />
-        <TextField size="small" label="max distance" disabled value={`${radius} km`} />
+        <TextField size="small" label="Radius" disabled value={`${radius} km`} />
       </Box>
+      <BrandPicker />
       {stylesOptions.map((option) => (
         <FormControlLabel
           key={option.id}

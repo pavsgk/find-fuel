@@ -1,7 +1,7 @@
+import { IconButton } from '@mui/material'
 import { useDispatch } from 'react-redux'
 import { setMyPosition } from '../../store/reducers/stations'
 import { ReactComponent as GpsIcon } from './gps-icon.svg'
-import styles from './Gps.module.scss'
 
 export default function Gps() {
   const dispatch = useDispatch()
@@ -13,10 +13,8 @@ export default function Gps() {
   }
 
   return (
-    <div className={styles.Gps}>
-      <button onClick={handleClick}>
-        <GpsIcon />
-      </button>
-    </div>
+    <IconButton onClick={handleClick}>
+      <GpsIcon />
+    </IconButton>
   )
 }
