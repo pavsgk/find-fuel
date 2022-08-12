@@ -61,6 +61,7 @@ const stationsSlice = createSlice({
       state.filtered = applyFilters(state)
       state.isReady = true
       state.isLoading = false
+      console.log(state);
     },
     [getStations.pending]: (state) => {
       state.isLoading = true
