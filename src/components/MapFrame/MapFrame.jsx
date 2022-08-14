@@ -8,10 +8,12 @@ import { addOriginMarker, addStationMarker, renderLayers } from './MapFrameUtils
 
 const markers = []
 
-const renderStations = (markersArray, stations, map) => {
+const renderStations = (markersArray, stations, map, origin) => {
   markersArray.forEach((marker, index) => (index > 0 ? marker.remove() : void 0))
   stations.map((station, index) =>
-    markersArray.push(addStationMarker(map, station, index ? styles.stationMarker : styles.nearestMarker))
+    markersArray.push(
+      addStationMarker(map, station, origin, index ? styles.stationMarker : styles.nearestMarker, styles.stationPopup)
+    )
   )
 }
 
@@ -25,7 +27,7 @@ export default function MapFrame() {
 
   useEffect(() => {
     if (map.loaded) {
-      renderStations(markers, stations, map)
+      renderStations(markers, stations, map, myPosition)
     }
   }, [stations.length])
 
@@ -46,7 +48,7 @@ export default function MapFrame() {
     setMap(map)
 
     markers.push(addOriginMarker(map, myPosition, dispatch, styles.startMarker, styles.startMarkerPopup))
-    renderStations(markers, stations, map)
+    renderStations(markers, stations, map, myPosition)
 
     return () => {
       const { lng, lat } = map.getCenter()
@@ -64,11 +66,12 @@ export default function MapFrame() {
   }, [])
 
   useLayoutEffect(() => renderLayers(map, { trafficFlow, trafficIncidents, poi }), [trafficFlow, trafficIncidents, poi])
+
   useLayoutEffect(() => {
     if (markers[0] && map.setCenter) {
       markers[0].setLngLat([myPosition[0], myPosition[1]])
       if (isAutofocus) map.setCenter([myPosition[0], myPosition[1]])
-      renderStations(markers, stations, map)
+      renderStations(markers, stations, map, myPosition)
     }
   }, [myPosition[0], myPosition[1]])
 
