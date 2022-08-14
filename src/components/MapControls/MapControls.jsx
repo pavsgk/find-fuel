@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import { delayedDebounce } from '../../utils/utils'
 import store from '../../store/store'
 import BrandPicker from '../BrandPicker/BrandPicker'
+import FuelPicker from '../FuelPicker/FuelPicker'
 
 const stylesOptions = [
   {
@@ -66,6 +67,7 @@ export default function MapControls() {
         <TextField size="small" label="Radius" disabled value={`${radius} km`} />
       </Box>
       <BrandPicker />
+      <FuelPicker />
       {stylesOptions.map((option) => (
         <FormControlLabel
           key={option.id}
