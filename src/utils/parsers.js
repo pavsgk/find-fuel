@@ -20,8 +20,10 @@ export function filterByField(locations, field, values, exclude = false) {
     const executor = exclude ? Array.prototype.every.bind(values) : Array.prototype.some.bind(values)
 
     return executor((item) => {
-      if (location[field]) {
+      if (location[field] && !Array.isArray(location[field])) {
         return Boolean((location[field].toLowerCase() === item.toLowerCase()) - exclude)
+      } else if (Array.isArray(location[field])) {
+        return location[field].some((value) => Boolean((value.toLowerCase() === item.toLowerCase()) - exclude))
       }
     })
   })

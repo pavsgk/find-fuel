@@ -67,7 +67,7 @@ export default function MultipleSelectCheckmarks() {
 
   return (
     <div>
-      <FormControl size='small' sx={{ m: 1, width: 300 }}>
+      <FormControl size="small" sx={{ m: 1, width: 300 }}>
         <InputLabel>Brand (* if empty)</InputLabel>
         <Select
           multiple

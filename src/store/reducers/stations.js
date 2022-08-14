@@ -1,12 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { requestStations } from '../../utils/api'
 import { filterByField } from '../../utils/parsers'
-import { calculateDistance, flattenObject } from '../../utils/utils'
+import { calculateDistance, flattenObject, getFewItems } from '../../utils/utils'
 
 const initialState = {
   db: [],
   myPosition: [30.523333, 50.450001],
-  filters: { radius: 5000, brand: [] },
+  filters: { radius: 5000, brand: [], fuel: [] },
   filtered: [],
   isReady: false,
   isError: false,
@@ -15,7 +15,12 @@ const initialState = {
 
 export const getStations = createAsyncThunk('stations/get', async () => {
   const response = await requestStations()
-  const shapedResults = response.results.map(flattenObject)
+  const shapedResults = response.results.map((station) => {
+    const flattenedObject = flattenObject(station)
+    flattenedObject['fuel'] = getFewItems(['98', '95', 'D', 'LPG'])
+    return flattenedObject
+  })
+
   return shapedResults
 })
 
@@ -34,9 +39,12 @@ const applyFilters = (state) => {
     lat: state.myPosition[1],
   }).filter((el) => el.dist < state.filters.radius)
 
-  const { brand } = state.filters
+  const { brand, fuel } = state.filters
   if (brand.length) {
     updatedStationsList = filterByField(updatedStationsList, 'poi_brands_0_name', brand)
+  }
+  if (fuel.length) {
+    updatedStationsList = filterByField(updatedStationsList, 'fuel', fuel)
   }
 
   return updatedStationsList
@@ -61,7 +69,6 @@ const stationsSlice = createSlice({
       state.filtered = applyFilters(state)
       state.isReady = true
       state.isLoading = false
-      console.log(state);
     },
     [getStations.pending]: (state) => {
       state.isLoading = true

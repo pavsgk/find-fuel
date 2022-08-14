@@ -10,7 +10,8 @@ test('renders app', () => {
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </Provider>)
+    </Provider>
+  )
   const element = screen.getByText(/Traffic flow/i)
   expect(element).toBeInTheDocument()
 })

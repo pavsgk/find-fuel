@@ -10,7 +10,9 @@ const markers = []
 
 const renderStations = (markersArray, stations, map) => {
   markersArray.forEach((marker, index) => (index > 0 ? marker.remove() : void 0))
-  stations.map((station, index) => markersArray.push(addStationMarker(map, station, index ? styles.stationMarker : styles.nearestMarker)))
+  stations.map((station, index) =>
+    markersArray.push(addStationMarker(map, station, index ? styles.stationMarker : styles.nearestMarker))
+  )
 }
 
 export default function MapFrame() {
