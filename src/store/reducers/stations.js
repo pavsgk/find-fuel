@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { requestStations } from '../../utils/api'
-import { dbParser, filterByField } from '../../utils/parsers'
+import { filterByField } from '../../utils/parsers'
 import { calculateDistance, flattenObject } from '../../utils/utils'
 
 const initialState = {
@@ -61,6 +61,7 @@ const stationsSlice = createSlice({
       state.filtered = applyFilters(state)
       state.isReady = true
       state.isLoading = false
+      console.log(state);
     },
     [getStations.pending]: (state) => {
       state.isLoading = true
