@@ -7,14 +7,13 @@ async function requestStations() {
     return data
   }
 
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => {
-      const {stations} = require('../mocks/tomtom.js');
-      console.log(stations);
-      resolve(stations);
+      const { stations } = require('../mocks/tomtom.js')
+      console.log(stations)
+      resolve(stations)
     }, 500)
   })
-
 }
 
 export { requestStations }

@@ -10,11 +10,12 @@ const markers = []
 
 const renderStations = (markersArray, stations, map, origin) => {
   markersArray.forEach((marker, index) => (index > 0 ? marker.remove() : void 0))
-  stations.map((station, index) =>
-    markersArray.push(
-      addStationMarker(map, station, origin, index ? styles.stationMarker : styles.nearestMarker, styles.stationPopup)
-    )
-  )
+  const renderStations = [...stations]
+  renderStations.reverse().map((station, index) => {
+    const markerStyle = index === stations.length - 1 ? styles.nearestMarker : styles.stationMarker
+    markersArray.push(addStationMarker(map, station, origin, markerStyle, styles.stationPopup))
+  })
+  return markersArray
 }
 
 export default function MapFrame() {
@@ -68,7 +69,7 @@ export default function MapFrame() {
   useLayoutEffect(() => renderLayers(map, { trafficFlow, trafficIncidents, poi }), [trafficFlow, trafficIncidents, poi])
 
   useLayoutEffect(() => {
-    if (markers[0] && map.setCenter) {
+    if (markers[0] && map.loaded) {
       markers[0].setLngLat([myPosition[0], myPosition[1]])
       if (isAutofocus) map.setCenter([myPosition[0], myPosition[1]])
       renderStations(markers, stations, map, myPosition)

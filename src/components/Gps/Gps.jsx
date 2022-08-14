@@ -1,7 +1,7 @@
 import { IconButton } from '@mui/material'
 import { useDispatch } from 'react-redux'
 import { setMyPosition } from '../../store/reducers/stations'
-import { ReactComponent as GpsIcon } from './gps-icon.svg'
+import { ReactComponent as GpsIcon } from '../../assets/gps-icon.svg'
 
 export default function Gps() {
   const dispatch = useDispatch()

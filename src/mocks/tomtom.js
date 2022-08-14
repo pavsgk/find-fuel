@@ -295,10 +295,10 @@ export const stations = {
       "dist": 2235.568275097917,
       "info": "search:ta:804009000116098-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Горького",
+        "name": "AMIC Energy Горького",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -503,10 +503,10 @@ export const stations = {
       "dist": 2512.7841054611768,
       "info": "search:ta:804009000121292-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Перемоги 6",
+        "name": "AMIC Energy Перемоги 6",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -640,10 +640,10 @@ export const stations = {
       "dist": 2655.3137319871253,
       "info": "search:ta:804009000119998-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Щорса",
+        "name": "AMIC Energy Щорса",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -1531,10 +1531,10 @@ export const stations = {
       "dist": 3763.3579024841365,
       "info": "search:ta:804009000116885-UA",
       "poi": {
-        "name": "ТНК Дружби Народів",
+        "name": "Glusco Дружби Народів",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -1668,10 +1668,10 @@ export const stations = {
       "dist": 3865.8341211157435,
       "info": "search:ta:804009000124652-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Червоноармійс",
+        "name": "AMIC Energy Червоноармійс",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -1880,10 +1880,10 @@ export const stations = {
       "dist": 4003.935036216733,
       "info": "search:ta:804009000115955-UA",
       "poi": {
-        "name": "ТНК Новоконстантинів",
+        "name": "Glusco Новоконстантинів",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -2036,10 +2036,10 @@ export const stations = {
       "dist": 4014.8338699356555,
       "info": "search:ta:804009000130319-UA",
       "poi": {
-        "name": "ТНК Електриків",
+        "name": "Glusco Електриків",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -2451,10 +2451,10 @@ export const stations = {
       "dist": 4285.128574512405,
       "info": "search:ta:804009000123659-UA",
       "poi": {
-        "name": "ТНК Кіровоградська",
+        "name": "Glusco Кіровоградська",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -2659,10 +2659,10 @@ export const stations = {
       "dist": 4402.429242557045,
       "info": "search:ta:804009000113996-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Героїв Сталін",
+        "name": "AMIC Energy Героїв Сталін",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -2867,10 +2867,10 @@ export const stations = {
       "dist": 4588.270639862847,
       "info": "search:ta:804009000118326-UA",
       "poi": {
-        "name": "ТНК Залізничне",
+        "name": "Glusco Залізничне",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -3146,10 +3146,10 @@ export const stations = {
       "dist": 4753.102747550709,
       "info": "search:ta:804009000131381-UA",
       "poi": {
-        "name": "ТНК Червонозоряний",
+        "name": "Glusco Червонозоряний",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -3217,10 +3217,10 @@ export const stations = {
       "dist": 4765.807102696239,
       "info": "search:ta:804009000113106-UA",
       "poi": {
-        "name": "ТНК Московський",
+        "name": "Glusco Московський",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -3431,10 +3431,10 @@ export const stations = {
       "dist": 4883.508286362888,
       "info": "search:ta:804009000114764-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Перемоги 38",
+        "name": "AMIC Energy Перемоги 38",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -3780,10 +3780,10 @@ export const stations = {
       "dist": 5005.285967673523,
       "info": "search:ta:804009000113839-UA",
       "poi": {
-        "name": "ТНК Донська",
+        "name": "Glusco Донська",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -3851,10 +3851,10 @@ export const stations = {
       "dist": 5008.067681217754,
       "info": "search:ta:804009000116229-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Московський 1",
+        "name": "AMIC Energy Московський 1",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -4059,10 +4059,10 @@ export const stations = {
       "dist": 5045.515040644021,
       "info": "search:ta:804009000125933-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Червонозоряни",
+        "name": "AMIC Energy Червонозоряни",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -4196,10 +4196,10 @@ export const stations = {
       "dist": 5108.600302326923,
       "info": "search:ta:804009000130225-UA",
       "poi": {
-        "name": "ТНК Науки",
+        "name": "Glusco Науки",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -4541,10 +4541,10 @@ export const stations = {
       "dist": 5227.710717660334,
       "info": "search:ta:804009000117912-UA",
       "poi": {
-        "name": "ТНК Оболонський",
+        "name": "Glusco Оболонський",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -4964,10 +4964,10 @@ export const stations = {
       "dist": 5441.534330326216,
       "info": "search:ta:804007000025861-UA",
       "poi": {
-        "name": "ТНК Довженка",
+        "name": "Glusco Довженка",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -5446,10 +5446,10 @@ export const stations = {
       "dist": 5633.749240097132,
       "info": "search:ta:804009000117663-UA",
       "poi": {
-        "name": "ТНК Визволителів",
+        "name": "Glusco Визволителів",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -5737,10 +5737,10 @@ export const stations = {
       "dist": 5686.876309411523,
       "info": "search:ta:804009000115496-UA",
       "poi": {
-        "name": "ТНК Гетьмана Вадима",
+        "name": "Glusco Гетьмана Вадима",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -6151,10 +6151,10 @@ export const stations = {
       "dist": 5926.396769842611,
       "info": "search:ta:804009000123118-UA",
       "poi": {
-        "name": "ТНК Дніпровська",
+        "name": "Glusco Дніпровська",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -6293,10 +6293,10 @@ export const stations = {
       "dist": 6056.901034030858,
       "info": "search:ta:804009000115996-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Перемоги 49",
+        "name": "AMIC Energy Перемоги 49",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -6501,10 +6501,10 @@ export const stations = {
       "dist": 6195.668602091394,
       "info": "search:ta:804009000121558-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Возз'єднання",
+        "name": "AMIC Energy Возз'єднання",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -6846,10 +6846,10 @@ export const stations = {
       "dist": 6303.469554874165,
       "info": "search:ta:804009000120922-UA",
       "poi": {
-        "name": "ТНК Генерала Ватутін",
+        "name": "Glusco Генерала Ватутін",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -6988,10 +6988,10 @@ export const stations = {
       "dist": 6356.924390068888,
       "info": "search:ta:804009000131682-UA",
       "poi": {
-        "name": "ТНК Возз'єднання",
+        "name": "Glusco Возз'єднання",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -7210,10 +7210,10 @@ export const stations = {
       "dist": 6446.591150667263,
       "info": "search:ta:804009000118991-UA",
       "poi": {
-        "name": "ТНК Камишинська",
+        "name": "Glusco Камишинська",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -7281,10 +7281,10 @@ export const stations = {
       "dist": 6469.367125576933,
       "info": "search:ta:804009000122825-UA",
       "poi": {
-        "name": "ТНК Васильківська",
+        "name": "Glusco Васильківська",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -7846,10 +7846,10 @@ export const stations = {
       "dist": 6712.671094826473,
       "info": "search:ta:804009000131670-UA",
       "poi": {
-        "name": "ТНК Перова",
+        "name": "Glusco Перова",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -8125,10 +8125,10 @@ export const stations = {
       "dist": 6961.280250147743,
       "info": "search:ta:804009000124199-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Дегтярівська",
+        "name": "AMIC Energy Дегтярівська",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -8903,10 +8903,10 @@ export const stations = {
       "dist": 7211.042622864247,
       "info": "search:ta:804009000128724-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Космонавта Ко",
+        "name": "AMIC Energy Космонавта Ко",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -8974,10 +8974,10 @@ export const stations = {
       "dist": 7232.754040087234,
       "info": "search:ta:804009000128603-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Броварський 16",
+        "name": "AMIC Energy Броварський 16",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -9248,10 +9248,10 @@ export const stations = {
       "dist": 7319.780791748401,
       "info": "search:ta:804009000130518-UA",
       "poi": {
-        "name": "ТНК Братиславська 7Б",
+        "name": "Glusco Братиславська 7Б",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -9319,10 +9319,10 @@ export const stations = {
       "dist": 7333.723921449169,
       "info": "search:ta:804009000116839-UA",
       "poi": {
-        "name": "ТНК Братиславська",
+        "name": "Glusco Братиславська",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -9674,10 +9674,10 @@ export const stations = {
       "dist": 7410.365605623059,
       "info": "search:ta:804009000125040-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Братиславська",
+        "name": "AMIC Energy Братиславська",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -10232,10 +10232,10 @@ export const stations = {
       "dist": 7573.121896184863,
       "info": "search:ta:804009000125102-UA",
       "poi": {
-        "name": "ТНК Перемоги",
+        "name": "Glusco Перемоги",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -10509,10 +10509,10 @@ export const stations = {
       "dist": 7649.336095842152,
       "info": "search:ta:804009000127624-UA",
       "poi": {
-        "name": "ТНК Генерала Ватутін",
+        "name": "Glusco Генерала Ватутін",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -10648,7 +10648,7 @@ export const stations = {
         "name": "Smile Павла Усенка",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -10936,10 +10936,10 @@ export const stations = {
       "dist": 7826.227113572212,
       "info": "search:ta:804009000129742-UA",
       "poi": {
-        "name": "ТНК Гагаріна",
+        "name": "Glusco Гагаріна",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -11073,10 +11073,10 @@ export const stations = {
       "dist": 7935.426259447617,
       "info": "search:ta:804009000113622-UA",
       "poi": {
-        "name": "ТНК Броварський 16A",
+        "name": "Glusco Броварський 16A",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -11210,10 +11210,10 @@ export const stations = {
       "dist": 8005.89608168527,
       "info": "search:ta:804009000123038-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Автозаводська",
+        "name": "AMIC Energy Автозаводська",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -11557,10 +11557,10 @@ export const stations = {
       "dist": 8098.868908351836,
       "info": "search:ta:804009000130418-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Правди",
+        "name": "AMIC Energy Правди",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -12247,10 +12247,10 @@ export const stations = {
       "dist": 8352.499261402105,
       "info": "search:ta:804009000130897-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Миколи Бажана",
+        "name": "AMIC Energy Миколи Бажана",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -12457,10 +12457,10 @@ export const stations = {
       "dist": 8454.502994025503,
       "info": "search:ta:804009000119237-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Набережно-Кор",
+        "name": "AMIC Energy Набережно-Кор",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -12528,10 +12528,10 @@ export const stations = {
       "dist": 8465.930976568217,
       "info": "search:ta:804009000130765-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Полярна",
+        "name": "AMIC Energy Полярна",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -12873,10 +12873,10 @@ export const stations = {
       "dist": 8628.76904029355,
       "info": "search:ta:804009000126965-UA",
       "poi": {
-        "name": "ТНК Миколи Бажана 1A",
+        "name": "Glusco Миколи Бажана 1A",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -13081,10 +13081,10 @@ export const stations = {
       "dist": 8722.767467154186,
       "info": "search:ta:804009000117725-UA",
       "poi": {
-        "name": "ТНК Зарічна",
+        "name": "Glusco Зарічна",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -13502,10 +13502,10 @@ export const stations = {
       "dist": 8961.140318857033,
       "info": "search:ta:804009000121534-UA",
       "poi": {
-        "name": "ТНК Броварський",
+        "name": "Glusco Броварський",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -13793,10 +13793,10 @@ export const stations = {
       "dist": 9183.764321150524,
       "info": "search:ta:804009000120174-UA",
       "poi": {
-        "name": "ТНК Академіка Глушко",
+        "name": "Glusco Академіка Глушко",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -14342,10 +14342,10 @@ export const stations = {
       "dist": 9390.510625004144,
       "info": "search:ta:804009000122586-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Броварський 16",
+        "name": "AMIC Energy Броварський 16",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -15407,10 +15407,10 @@ export const stations = {
       "dist": 9628.57041017936,
       "info": "search:ta:804009000130764-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Електротехніч",
+        "name": "AMIC Energy Електротехніч",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -15620,10 +15620,10 @@ export const stations = {
       "dist": 9677.00109059391,
       "info": "search:ta:804009000119569-UA",
       "poi": {
-        "name": "ТНК Академіка Глушко",
+        "name": "Glusco Академіка Глушко",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -15899,10 +15899,10 @@ export const stations = {
       "dist": 9795.12960440948,
       "info": "search:ta:804009000131840-UA",
       "poi": {
-        "name": "ТНК Миколи Бажана 1К",
+        "name": "Glusco Миколи Бажана 1К",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -16039,7 +16039,7 @@ export const stations = {
         "name": "Smile Кільцева",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -16176,7 +16176,7 @@ export const stations = {
         "name": "Formula Столичне",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -16315,10 +16315,10 @@ export const stations = {
       "dist": 9969.830012459703,
       "info": "search:ta:804009000118682-UA",
       "poi": {
-        "name": "ТНК Кільцева",
+        "name": "Glusco Кільцева",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -16927,10 +16927,10 @@ export const stations = {
       "dist": 10659.614629321715,
       "info": "search:ta:804009000130801-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Стеценка",
+        "name": "AMIC Energy Стеценка",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -17064,10 +17064,10 @@ export const stations = {
       "dist": 10729.281327602726,
       "info": "search:ta:804009000114492-UA",
       "poi": {
-        "name": "ТНК Зодчих",
+        "name": "Glusco Зодчих",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -18469,10 +18469,10 @@ export const stations = {
       "dist": 11682.918103002063,
       "info": "search:ta:804009000117209-UA",
       "poi": {
-        "name": "ТНК Миколи Бажана 44",
+        "name": "Glusco Миколи Бажана 44",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -18671,10 +18671,10 @@ export const stations = {
       "dist": 11712.35518642304,
       "info": "search:ta:804009000130389-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Петропавлівсь",
+        "name": "AMIC Energy Петропавлівсь",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -19086,10 +19086,10 @@ export const stations = {
       "dist": 11808.707034651708,
       "info": "search:ta:804009000125403-UA",
       "poi": {
-        "name": "ТНК Харківське 210А",
+        "name": "Glusco Харківське 210А",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -19299,10 +19299,10 @@ export const stations = {
       "dist": 11852.35927962718,
       "info": "search:ta:804009000118974-UA",
       "poi": {
-        "name": "ТНК Харківське 179А",
+        "name": "Glusco Харківське 179А",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -19441,10 +19441,10 @@ export const stations = {
       "dist": 11883.843907088343,
       "info": "search:ta:804009000127891-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Столичне",
+        "name": "AMIC Energy Столичне",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -19732,10 +19732,10 @@ export const stations = {
       "dist": 11956.399553187874,
       "info": "search:ta:804009000127199-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Червонопрапор",
+        "name": "AMIC Energy Червонопрапор",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -22383,10 +22383,10 @@ export const stations = {
       "dist": 16587.486399792047,
       "info": "search:ta:804009000129165-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Київська",
+        "name": "AMIC Energy Київська",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -22791,10 +22791,10 @@ export const stations = {
       "dist": 17498.391088904067,
       "info": "search:ta:804009000120391-UA",
       "poi": {
-        "name": "Лукойл",
+        "name": "AMIC Energy",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -23000,10 +23000,10 @@ export const stations = {
       "dist": 19247.34573469029,
       "info": "search:ta:804009000082160-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Бориспільське шосе 25-км",
+        "name": "AMIC Energy Бориспільське шосе 25-км",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -23415,10 +23415,10 @@ export const stations = {
       "dist": 19734.266213934286,
       "info": "search:ta:804009000113978-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Віта-Поштова",
+        "name": "AMIC Energy Віта-Поштова",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -23549,10 +23549,10 @@ export const stations = {
       "dist": 19924.67249025702,
       "info": "search:ta:804009000115097-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Бориспільське",
+        "name": "AMIC Energy Бориспільське",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -24092,10 +24092,10 @@ export const stations = {
       "dist": 20758.637804943828,
       "info": "search:ta:804009000131882-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Радистів",
+        "name": "AMIC Energy Радистів",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -24373,10 +24373,10 @@ export const stations = {
       "dist": 21153.81977833589,
       "info": "search:ta:804009000131980-UA",
       "poi": {
-        "name": "ТНК Гостомельське",
+        "name": "Glusco Гостомельське",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -24716,10 +24716,10 @@ export const stations = {
       "dist": 21478.91480487824,
       "info": "search:ta:804009000123221-UA",
       "poi": {
-        "name": "ТНК Капітанівка",
+        "name": "Glusco Капітанівка",
         "brands": [
           {
-            "name": "TNK"
+            "name": "Glusco"
           }
         ],
         "categorySet": [
@@ -27321,10 +27321,10 @@ export const stations = {
       "dist": 2781.4506877525664,
       "info": "search:ta:804009000118969-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Городоцька",
+        "name": "AMIC Energy Городоцька",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -31974,10 +31974,10 @@ export const stations = {
       "dist": 7274.8673841036225,
       "info": "search:ta:804009000130978-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Кульпарківськ",
+        "name": "AMIC Energy Кульпарківськ",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
@@ -34905,10 +34905,10 @@ export const stations = {
       "dist": 10098.897306891038,
       "info": "search:ta:804009000115588-UA",
       "poi": {
-        "name": "ЛУКОЙЛ Гамаліївка",
+        "name": "AMIC Energy Гамаліївка",
         "brands": [
           {
-            "name": "Lukoil"
+            "name": "AMIC Energy"
           }
         ],
         "categorySet": [
