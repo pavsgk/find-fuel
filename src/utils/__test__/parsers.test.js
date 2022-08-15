@@ -1,4 +1,4 @@
-import { dbParser, filterByField } from '../parsers'
+import { parseDb, filterByField } from '../parsers'
 
 describe('dbParser', () => {
   test('it should parse array of objects and show unique values', () => {
@@ -20,7 +20,7 @@ describe('dbParser', () => {
       fieldA: ['string 1', 'string 2'],
       fieldB: ['string 2', 'string 3'],
     }
-    expect(dbParser(input)).toStrictEqual(result)
+    expect(parseDb(input)).toStrictEqual(result)
   })
 })
 
