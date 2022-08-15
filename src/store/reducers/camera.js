@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  center: [30.523333, 50.450001],
+  center: [30.52497, 50.44815],
   zoom: 14,
   isAutofocus: true,
   stylesVisibility: {
