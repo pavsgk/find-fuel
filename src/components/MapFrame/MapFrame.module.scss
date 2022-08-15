@@ -1,6 +1,7 @@
-.mapDiv {
+.MapFrame {
   width: 100vw;
   height: 100vh;
+  border-top: 1px solid gray;
 }
 
 .startMarker {
@@ -57,4 +58,19 @@
 .nearestMarker {
   @extend .stationMarker;
   background-image: url('../../assets/nearest.svg');
+}
+
+.contextPopup {
+  padding: 0;
+  ul {
+    padding: 0;
+    li {
+      list-style: none;
+      cursor: pointer;
+      padding: 0 10px;
+      &:hover {
+        background-color: rgba(60, 60, 60, 0.05);
+      }
+    }
+  }
 }
