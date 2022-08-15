@@ -5,7 +5,7 @@ import { calculateDistance, flattenObject, getFewItems } from '../../utils/utils
 
 const initialState = {
   db: [],
-  myPosition: [30.523333, 50.450001],
+  myPosition: [30.52497, 50.44815],
   filters: { radius: 5000, brand: [], fuel: [] },
   filtered: [],
   isReady: false,

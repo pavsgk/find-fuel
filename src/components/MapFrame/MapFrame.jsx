@@ -4,21 +4,9 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { updatePosition } from '../../store/reducers/camera'
 import styles from './MapFrame.module.scss'
-import { addOriginMarker, addStationMarker, renderLayers } from './MapFrameUtils'
-import { setMyPosition } from '../../store/reducers/stations'
+import { addOriginMarker, renderStations, renderLayers, prepareContexPopup } from './MapFrameUtils'
 
 const markers = []
-
-const renderStations = (markersArray, stations, map, origin) => {
-  markersArray.forEach(marker => marker.remove())
-  const renderStations = [...stations]
-  renderStations.reverse().map((station, index) => {
-    const markerStyle = index === stations.length - 1 ? styles.nearestMarker : styles.stationMarker
-    markersArray.push(addStationMarker(map, station, origin, markerStyle, styles.stationPopup))
-  })
-  markers[0].addTo(map)
-  return markersArray
-}
 
 export default function MapFrame() {
   const dispatch = useDispatch()
@@ -54,25 +42,8 @@ export default function MapFrame() {
     renderStations(markers, stations, map, myPosition)
 
     const contextPopup = new tt.Popup({ closeButton: false, className: styles.contextPopup})
-    const optionsList = document.createElement('ul')
-
-    const flyToOpt = document.createElement('li')
-    flyToOpt.innerText = 'Fly to'
-    flyToOpt.onclick = () => {
-      map.setCenter(contextPopup.getLngLat());
-      contextPopup.remove()
-    }
-
-    const setOriginOpt = document.createElement('li')
-    setOriginOpt.innerText = 'Set origin'
-    setOriginOpt.onclick = () => {
-      const {lng, lat} = contextPopup.getLngLat()
-      dispatch(setMyPosition([lng, lat]))
-      contextPopup.remove()
-    }
-
-    optionsList.append(setOriginOpt, flyToOpt)
-    contextPopup.setDOMContent(optionsList);
+    const contextOptions = prepareContexPopup(contextPopup, map, dispatch)
+    contextPopup.setDOMContent(contextOptions);
     contextPopup.addTo(map)
 
     map.on('contextmenu', ({lngLat}) => {
