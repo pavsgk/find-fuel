@@ -41,13 +41,12 @@ export default function MapFrame() {
     markers.push(addOriginMarker(map, myPosition, dispatch, styles.startMarker, styles.startMarkerPopup))
     renderStations(markers, stations, map, myPosition)
 
-    const contextPopup = new tt.Popup({ closeButton: false, className: styles.contextPopup})
-    const contextOptions = prepareContexPopup(contextPopup, map, dispatch)
-    contextPopup.setDOMContent(contextOptions);
-    contextPopup.addTo(map)
+    const contextPopup = new tt.Popup({ closeButton: false, className: styles.contextPopup })
 
-    map.on('contextmenu', ({lngLat}) => {
-      contextPopup.setLngLat(lngLat);
+    map.on('contextmenu', ({ lngLat }) => {
+      contextPopup.setLngLat(lngLat)
+      const contextOptions = prepareContexPopup(contextPopup, map, dispatch)
+      contextPopup.setDOMContent(contextOptions)
       contextPopup.addTo(map)
     })
 
