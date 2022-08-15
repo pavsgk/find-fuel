@@ -70,8 +70,14 @@ export default function MapFrame() {
   useLayoutEffect(() => {
     if (markers[0] && map.loaded) {
       markers[0].setLngLat([myPosition[0], myPosition[1]])
+      
       if (isAutofocus) map.setCenter([myPosition[0], myPosition[1]])
       renderStations(markers, stations, map, myPosition)
+
+      if (map.getLayer('direction')) {
+        map.removeLayer('direction')
+        map.removeSource('direction')
+      }
     }
   }, [myPosition[0], myPosition[1]])
 

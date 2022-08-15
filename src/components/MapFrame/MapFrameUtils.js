@@ -4,6 +4,7 @@ import ttapi from '@tomtom-international/web-sdk-services'
 import { limitFloat } from '../../utils/utils'
 import { urls } from '../../utils/constants'
 import styles from './MapFrame.module.scss'
+import store from '../../store/store'
 
 export function renderLayers(map, { trafficFlow, trafficIncidents, poi }) {
   if (!('loaded' in map)) return
@@ -15,6 +16,26 @@ export function renderLayers(map, { trafficFlow, trafficIncidents, poi }) {
 
   if (poi) map.showPOI()
   else map.hidePOI()
+}
+
+export function renderDirection(geoJson, map) {
+  if (map.getLayer('direction')) {
+    map.removeLayer('direction')
+    map.removeSource('direction')
+  }
+
+  map.addLayer({
+    id: 'direction',
+    type: 'line',
+    paint: {
+      'line-width': 3,
+      'line-color': '#0000FF',
+    },
+    source: {
+      type: 'geojson',
+      data: geoJson,
+    },
+  })
 }
 
 export function addOriginMarker(map, pos, dispatch, className) {
@@ -109,6 +130,18 @@ export function prepareContexPopup(contextPopup, map, dispatch) {
   const routeOpt = document.createElement('li')
   routeOpt.innerText = 'Route here'
   routeOpt.onclick = () => {
+    const { myPosition } = store.getState().stations
+    const originLngLat = { lng: myPosition[0], lat: myPosition[1] }
+    ttapi.services
+      .calculateRoute({
+        key: process.env.REACT_APP_TT_KEY,
+        locations: [originLngLat, contextPopup.getLngLat()],
+      })
+      .then((response) => {
+        const geoJson = response.toGeoJson()
+        renderDirection(geoJson, map)
+      })
+
     contextPopup.remove()
   }
 
