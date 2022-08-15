@@ -50,7 +50,7 @@ export function addOriginMarker(map, pos, dispatch, className) {
     .setLngLat(pos)
     .addTo(map)
 
-  startMarker.setPopup(popup).togglePopup()
+  startMarker.setPopup(popup)
 
   startMarker.on('dragend', () => {
     const { lng, lat } = startMarker.getLngLat()

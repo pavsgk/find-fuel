@@ -1,7 +1,6 @@
 import { Box, FormControlLabel, Slider, Switch, TextField } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleAutofocus, updateStylesVisibility } from '../../store/reducers/camera'
-import styles from './MapControls.module.scss'
 import Gps from '../Gps/Gps'
 import { updateFilters } from '../../store/reducers/stations'
 import { useEffect, useState } from 'react'
@@ -56,7 +55,7 @@ export default function MapControls() {
   }
 
   return (
-    <div className={styles.MapControls}>
+    <Box sx={{ display: 'flex', alignItems: 'center', height: '50px', justifyContent: 'space-around' }}>
       <Gps />
       <FormControlLabel
         control={<Switch checked={isAutofocus} onChange={() => dispatch(toggleAutofocus())} />}
@@ -80,6 +79,6 @@ export default function MapControls() {
           label={option.verbose}
         />
       ))}
-    </div>
+    </Box>
   )
 }

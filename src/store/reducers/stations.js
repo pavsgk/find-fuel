@@ -20,7 +20,6 @@ export const getStations = createAsyncThunk('stations/get', async () => {
     flattenedObject['fuel'] = getFewItems(['98', '95', 'D', 'LPG']).sort((a, b) => a.localeCompare(b))
     return flattenedObject
   })
-
   return shapedResults
 })
 

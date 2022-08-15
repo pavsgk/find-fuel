@@ -1,4 +1,4 @@
-export function dbParser(locationList) {
+export function parseDb(locationList) {
   const vocabulary = locationList.reduce((vocab, location) => {
     for (const [key] of Object.entries(location)) {
       if (!(key in vocab)) {
@@ -10,6 +10,7 @@ export function dbParser(locationList) {
     }
     return vocab
   }, {})
+
   return vocabulary
 }
 

@@ -6,7 +6,7 @@
 .startMarker {
   width: 35px;
   height: 35px;
-  background-image: url('./start.svg');
+  background-image: url('../../assets/start.svg');
   background-size: cover;
   border-radius: 20%;
 }
@@ -14,7 +14,7 @@
 .stationMarker {
   width: 25px;
   height: 25px;
-  background-image: url('./station.svg');
+  background-image: url('../../assets/station.svg');
   background-size: cover;
   border-radius: 50%;
 }
@@ -38,7 +38,7 @@
     a {
       width: 30px;
       height: 30px;
-      background-image: url('./compass.svg');
+      background-image: url('../../assets/compass.svg');
       background-color: transparent;
       border: none;
       outline: none;
@@ -56,5 +56,5 @@
 
 .nearestMarker {
   @extend .stationMarker;
-  background-image: url('./nearest.svg');
+  background-image: url('../../assets/nearest.svg');
 }
