@@ -1,0 +1,76 @@
+.MapFrame {
+  width: 100vw;
+  height: 100vh;
+  border-top: 1px solid gray;
+}
+
+.startMarker {
+  width: 35px;
+  height: 35px;
+  background-image: url('../../assets/start.svg');
+  background-size: cover;
+  border-radius: 20%;
+}
+
+.stationMarker {
+  width: 25px;
+  height: 25px;
+  background-image: url('../../assets/station.svg');
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.stationPopup {
+  display: flex;
+  flex-direction: column;
+
+  p,
+  h3,
+  h4 {
+    margin: 0;
+    padding: 5px 0;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    a {
+      width: 30px;
+      height: 30px;
+      background-image: url('../../assets/compass.svg');
+      background-color: transparent;
+      border: none;
+      outline: none;
+      transition: transform 0.3s, filter 0.3s;
+      &:hover {
+        transform: translateY(-5px);
+        filter: drop-shadow(0 0 10px);
+      }
+      &:active {
+        transform: translateY(0px);
+      }
+    }
+  }
+}
+
+.nearestMarker {
+  @extend .stationMarker;
+  background-image: url('../../assets/nearest.svg');
+}
+
+.contextPopup {
+  padding: 0;
+  ul {
+    padding: 0;
+    li {
+      list-style: none;
+      cursor: pointer;
+      padding: 0 10px;
+      &:hover {
+        background-color: rgba(60, 60, 60, 0.05);
+      }
+    }
+  }
+}

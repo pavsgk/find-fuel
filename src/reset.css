@@ -5,3 +5,12 @@ body {
   font-size: 15px;
   font-family: sans-serif;
 }
+
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
