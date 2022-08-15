@@ -1,4 +1,3 @@
-import Header from './components/Header/Header'
 import styles from './App.module.scss'
 import { Routes, Route } from 'react-router-dom'
 import Main from './pages/Main/Main'
@@ -12,7 +11,7 @@ function App() {
 
   return (
     <div className={styles.App}>
-      <Header />
+      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/about" element={<About />} />
