@@ -55,12 +55,14 @@ export default function MapControls() {
   }
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center', height: '50px', justifyContent: 'space-around' }}>
-      <Gps />
-      <FormControlLabel
-        control={<Switch checked={isAutofocus} onChange={() => dispatch(toggleAutofocus())} />}
-        label={'Autofocus'}
-      />
+    <Box sx={{ display: 'flex', alignItems: 'center', minHeight: '50px', justifyContent: 'space-around', flexWrap: 'wrap'}}>
+      <Box>
+        <Gps />
+        <FormControlLabel
+          control={<Switch checked={isAutofocus} onChange={() => dispatch(toggleAutofocus())} />}
+          label={'Autofocus'}
+        />
+      </Box>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
         <Slider value={radius} step={1} min={1} max={20} onChange={handleRadius} />
         <TextField size="small" label="Radius" disabled value={`${radius} km`} />
