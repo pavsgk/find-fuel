@@ -1,8 +1,10 @@
 import { setMyPosition } from '../../store/reducers/stations'
 import tt from '@tomtom-international/web-sdk-maps'
+import ttapi from '@tomtom-international/web-sdk-services'
 import { limitFloat } from '../../utils/utils'
 import { urls } from '../../utils/constants'
 import styles from './MapFrame.module.scss'
+import store from '../../store/store'
 
 export function renderLayers(map, { trafficFlow, trafficIncidents, poi }) {
   if (!('loaded' in map)) return
@@ -14,6 +16,26 @@ export function renderLayers(map, { trafficFlow, trafficIncidents, poi }) {
 
   if (poi) map.showPOI()
   else map.hidePOI()
+}
+
+export function renderDirection(geoJson, map) {
+  if (map.getLayer('direction')) {
+    map.removeLayer('direction')
+    map.removeSource('direction')
+  }
+
+  map.addLayer({
+    id: 'direction',
+    type: 'line',
+    paint: {
+      'line-width': 3,
+      'line-color': '#0000FF',
+    },
+    source: {
+      type: 'geojson',
+      data: geoJson,
+    },
+  })
 }
 
 export function addOriginMarker(map, pos, dispatch, className) {
@@ -51,6 +73,7 @@ export function addStationMarker(map, station, origin, markerClassName, popupCla
 
   const marker = new tt.Marker({ element }).setLngLat([lon, lat]).addTo(map)
   marker.setPopup(popup)
+  marker.on('click', (e) => console.log(e))
 
   return marker
 }
@@ -80,32 +103,60 @@ function prepareStationPopup(station, origin, className) {
 export function prepareContexPopup(contextPopup, map, dispatch) {
   const optionsList = document.createElement('ul')
 
+  const latLonOpt = document.createElement('li')
+  const { lat, lng } = contextPopup.getLngLat()
+  latLonOpt.innerText = `${limitFloat(lat, 5)} ${limitFloat(lng, 5)}`
+  latLonOpt.onclick = () => {
+    navigator.clipboard.writeText(latLonOpt.innerText)
+    latLonOpt.innerText = 'Saved to clipboard!'
+    setTimeout(() => contextPopup.remove(), 500)
+  }
+
   const flyToOpt = document.createElement('li')
   flyToOpt.innerText = 'Fly to'
   flyToOpt.onclick = () => {
-    map.setCenter(contextPopup.getLngLat());
+    map.setCenter(contextPopup.getLngLat())
     contextPopup.remove()
   }
 
   const setOriginOpt = document.createElement('li')
   setOriginOpt.innerText = 'Set origin'
   setOriginOpt.onclick = () => {
-    const {lng, lat} = contextPopup.getLngLat()
+    const { lng, lat } = contextPopup.getLngLat()
     dispatch(setMyPosition([lng, lat]))
     contextPopup.remove()
   }
 
-  optionsList.append(setOriginOpt, flyToOpt)
-  return optionsList;
+  const routeOpt = document.createElement('li')
+  routeOpt.innerText = 'Route here'
+  routeOpt.onclick = () => {
+    const { myPosition } = store.getState().stations
+    const originLngLat = { lng: myPosition[0], lat: myPosition[1] }
+    ttapi.services
+      .calculateRoute({
+        key: process.env.REACT_APP_TT_KEY,
+        locations: [originLngLat, contextPopup.getLngLat()],
+      })
+      .then((response) => {
+        const geoJson = response.toGeoJson()
+        renderDirection(geoJson, map)
+      })
+
+    contextPopup.remove()
+  }
+
+  optionsList.append(latLonOpt, setOriginOpt, flyToOpt, routeOpt)
+  return optionsList
 }
 
 export function renderStations(markersArray, stations, map, origin) {
-  markersArray.forEach(marker => marker.remove())
-  
+  markersArray.forEach((marker) => marker.remove())
+
   const renderStations = [...stations]
   renderStations.reverse().map((station, index) => {
     const markerStyle = index === stations.length - 1 ? styles.nearestMarker : styles.stationMarker
-    markersArray.push(addStationMarker(map, station, origin, markerStyle, styles.stationPopup))
+    const marker = addStationMarker(map, station, origin, markerStyle, styles.stationPopup)
+    markersArray.push(marker)
   })
 
   markersArray[0].addTo(map)
